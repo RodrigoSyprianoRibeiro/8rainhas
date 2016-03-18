@@ -10,7 +10,6 @@ $(function () {
 
   $(document).on('click', '#busca', function(e){
     e.preventDefault();
-    desabilitaBotoes();
     $("#resultado").removeClass("hide"); // limpa o campo de resultado
     buscaSolucao();
   });
@@ -40,7 +39,6 @@ $(function () {
     var conflitos, y;
 
     if (i === 0) {
-      $("#info").html(''); // limpa a área de informação sempre que reinicia da coluna 0
       if (passosSemMudanca > 40) { // cinco ciclos sem alterar o tabuleiro - possível estado de estagnação
         if (confirm("Possível estagnação detectada!\n\nReiniciar usando uma configuração aleatória?")) {
           rainhas = []; // limpa tabuleiro
@@ -54,8 +52,7 @@ $(function () {
 
     if (exibeEstado()) { // atualiza tabuleiro na tela - prossegue se ainda houver conflitos
       passos++;
-      $("#passos").html(passos);
-      $("#info").html($("#info").html()+"Checando coluna "+i);
+      $("#passos").html("<b>"+passos+"</b>");
       conflitos = checaConflitos(i);
 
       min = conflitos; // inicializa número mínimo de conflitos
@@ -72,7 +69,6 @@ $(function () {
       }
       y = Math.floor(Math.random()*opcoes.length); // escolhe uma das posições que tem o mínimo de conflitos
       rainhas[i] = opcoes[y]; // reposiciona rainha desta coluna
-      document.getElementById("info").innerHTML += " - mínimo de conflitos = "+min+"<br>";
 
       if (comparaEstados(rainhas, anterior)) // verifica se houve mudança no tabuleiro
         passosSemMudanca++;
@@ -89,9 +85,7 @@ $(function () {
       }, delay);  // nova iteração em n milissegundos
 
     } else { // se não há conflitos no tabuleiro, encontrou uma solução!
-      $("info").html("");
-      habilitaBotoes();
-      alert("Solução encontrada!");
+      alert('Solução encontrada!');
     }
   }
 
@@ -193,7 +187,7 @@ $(function () {
       }
     }
     if (i === 8 && tmp === 0) {
-      alert("PARABÉNS!!\nVocê encontrou uma configuração válida!");
+      alert('Parabéns!\nVocê solucionou o problema!.');
     }
   });
 
@@ -212,13 +206,5 @@ $(function () {
     html += "</table>";
     $('#quadro').html(html);
     rainhas = [];
-  }
-
-  function habilitaBotoes() {
-    $("input[type=button]").prop("disabled", false);
-  }
-
-  function desabilitaBotoes() {
-    $("input[type=button]").prop("disabled", true);
   }
 });
