@@ -1,91 +1,138 @@
-<!DOCTYPE HTML>
-<html lang="pt-br">
-    <head>
-        <title>8 Rainhas - Modelos Evolucionários e Tratamento de Incertezas</title>
-        <link href="images/favicon.ico" rel="shortcut icon" />
-        <meta charset="utf-8" />
-        <meta name="description" content="Trabalho da disciplina Modelos Evolucionários e Tratamento de Incertezas da faculdade UNISUL, para resolver o problema das 8 Rainhas." />
-        <meta name="keywords" content="Problema 8 Rainhas, Modelos Evolucionários e Tratamento de Incertezas, IA, Inteligência artificial">
-        <meta name="author" content="Rodrigo Sypriano Ribeiro e Taynara Rechia">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <link rel="stylesheet" href="assets/css/style.css" />
-        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    </head>
-    <body class="no-sidebar">
-        <div id="page-wrapper">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trabalho da disciplina Modelos Evolucionários e Tratamento de Incertezas da faculdade UNISUL, para resolver o problema das 8 Rainhas." />
+    <meta name="author" content="Rodrigo Sypriano Ribeiro">
+    <title>8 Rainhas | Modelos Evolucionários e Tratamento de Incertezas</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet"> 
+    <link href="css/lightbox.css" rel="stylesheet"> 
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+</head><!--/head-->
 
-            <!-- Header -->
-            <div id="header-wrapper">
-                <div id="header" class="container">
-                    <!-- Logo -->
-                    <h1 id="logo">
-                      <img src="images/rainha.png" alt="8 Rainhas" />
-                      <a href="index.html">8 Rainhas</a>
-                    </h1>
-                    <p>Modelos Evolucionários e Tratamento de Incertezas.</p>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 overflow">
+                   <div class="social-icons pull-right">
+                        <ul class="nav nav-pills">
+                            <li><a href="https://github.com/RodrigoSyprianoRibeiro/8rainhas" target="_blank"><i class="fa fa-github"></i></a></li>
+                        </ul>
+                    </div> 
                 </div>
-                <br />
-                <div class="container">
-                  <input type="button" id="busca" value=" Busca solução">
-                </div>
-                <br />
-                <div id="quadro" class="container"></div>
-                <br />
-                <div class="container">
-                  <input type="button" id="limpa" value=" Limpa tabuleiro">
-                </div>
-                <br />
-                <div id="resultado" class="container hide">
-                    <h3>Passos executados:</h3> <span id="passos"></span>
-                </div>
-            </div>
-
-            <!-- Main -->
-            <div id="main-wrapper">
-                <div id="main" class="container">
-                    <div id="content">
-                        <!-- Post -->
-                        <article class="box post">
-                        <header>
-                            <h2>Dessafio <strong>8 Rainhas</strong></h2>
-                        </header>
-                            <h3>Sobre</h3>
-
-                            <p>O trabalho tem como ênfase apresentar o problema das oito rainhas e demonstrar
-                            uma forma de solucioná-lo. Este problema tem como objetivo posicionar oito rainhas
-                            em um tabuleiro de xadrez de modo que nenhuma delas ataque nenhuma outra rainha.
-                            Será baseado nas propriedades da rainha de um jogo de xadrez.</p>
-
-                            <p>Podemos buscar uma solução eficiente para o problema estudando as propriedades
-                            das rainhas. Uma das propriedades da rainha é que não pode haver outra rainha na
-                            linha ou na coluna onde esta se encontra. Assim, na construção do algoritmo de
-                            solução, não tentaremos posicionar uma rainha em uma posição que esteja sendo atacada.
-                            Esta mesma propriedade também vale para as diagonais em relação as rainha já posicionadas.</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <div id="footer-wrapper">
-                <div id="copyright" class="container">
-                    Copyright &copy; 8 Rainhas 2016. All rights reserved.
+             </div>
+        </div>
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <h1><img src="images/rainha.png" alt="logo"> 8 Rainhas</h1>
+                    </a>
+                    
                 </div>
             </div>
         </div>
+    </header>
+    <!--/#header-->
 
-        <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.dropotron.min.js"></script>
-        <script src="assets/js/skel.min.js"></script>
-        <script src="assets/js/skel-viewport.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/bootbox.js"></script>
-        <script src="assets/js/system.js"></script>
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul id="tab1" class="nav nav-tabs">
+                        <li class="active"><a href="#tab1-item1" data-toggle="tab">Jogo</a></li>
+                        <li><a href="#tab1-item2" data-toggle="tab">Sobre</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="tab1-item1">
+                            <div class="col-sm-9 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div id="mensagem" class="alert alert-success fade in hide">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4></h4>
+                                    <p></p>
+                                </div>
+                                <div class="single-service">
+                                    <div class="wow scaleIn margin-bottom" data-wow-duration="500ms" data-wow-delay="300ms">
+                                        <div id="quadro" class="container"></div>
+                                    </div>
+                                    <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                                        <button type="button" id="busca" class="btn btn-lg btn-success">Busca solução</button>
+                                        <button type="button" id="limpa" class="btn btn-lg btn-warning">Limpa tabuleiro</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                                <div class="single-service">
+                                    <h2>Passos executados:</h2>
+                                    <h1 id="passos"><b>0</b></h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab1-item2">
+                            <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                                <h2 class="page-header">Dessafio <strong>8 Rainhas</strong></h2>
+                                <blockquote>
+                                    <p>O desafio das 8 Rainhas tem como objetivo posicionar oito rainhas
+                                    em um tabuleiro de xadrez de modo que nenhuma delas ataque nenhuma outra rainha.
+                                    Será baseado nas propriedades da rainha de um jogo de xadrez.</p>
 
-    </body>
+                                    <p>Podemos buscar uma solução eficiente para o problema estudando as propriedades
+                                    das rainhas. Uma das propriedades da rainha é que não pode haver outra rainha na
+                                    linha ou na coluna onde esta se encontra. Assim, na construção do algoritmo de
+                                    solução, não tentaremos posicionar uma rainha em uma posição que esteja sendo atacada.
+                                    Esta mesma propriedade também vale para as diagonais em relação as rainha já posicionadas.</p>
+                                </blockquote>
+                            </div>
+                            <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                                <h2 class="page-header">Autores</h2>
+                                <blockquote>
+                                    <p>Rodrigo Ribeiro e Taynara Rechia.</p>
+
+                                    <p>Trabalho da disciplina Modelos Evolucionários e Tratamento de Incertezas do curso
+                                    de Ciência da Computação da UNISUL (Universidade do Sul de Santa Catarina).</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#services-->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="images/home/under.png" class="img-responsive inline" alt="">
+                </div>
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>&copy; 8 Rainhas 2016. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/#footer-->
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lightbox.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/bootbox.js"></script>
+    <script type="text/javascript" src="js/system.js"></script>
+</body>
 </html>
