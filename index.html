@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+        <title>8 Rainhas - Modelos Evolucionários e Tratamento de Incertezas</title>
+        <link href="images/favicon.ico" rel="shortcut icon" />
+        <meta charset="utf-8" />
+        <meta name="description" content="Trabalho da disciplina Modelos Evolucionários e Tratamento de Incertezas da faculdade UNISUL, para resolver o problema das 8 Rainhas." />
+        <meta name="keywords" content="Problema 8 Rainhas, Modelos Evolucionários e Tratamento de Incertezas, IA, Inteligência artificial">
+        <meta name="author" content="Rodrigo Sypriano Ribeiro e Taynara Rechia">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    </head>
+    <body class="no-sidebar">
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <div id="header-wrapper">
+                <div id="header" class="container">
+                    <!-- Logo -->
+                    <h1 id="logo">
+                      <img src="images/rainha.png" alt="8 Rainhas" />
+                      <a href="index.html">8 Rainhas</a>
+                    </h1>
+                    <p>Modelos Evolucionários e Tratamento de Incertezas.</p>
+                </div>
+                <br />
+                <div id="quadro" class="container"></div>
+                <br />
+                <div class="container">
+                  <input type="button" id="busca" value=" Busca solução"> &nbsp;
+                  <input type="button" id="limpa" value=" Limpa tabuleiro">
+                </div>
+                <br />
+                <div id="resultado" class="container hide">
+                    <h3>Passos executados:</h3> <span id="passos"></span>
+                    <br />
+                    <div id="info"></div>
+                </div>
+            </div>
+
+            <!-- Main -->
+            <div id="main-wrapper">
+                <div id="main" class="container">
+                    <div id="content">
+                        <!-- Post -->
+                        <article class="box post">
+                        <header>
+                            <h2>Dessafio <strong>8 Rainhas</strong></h2>
+                        </header>
+                            <h3>Sobre</h3>
+
+                            <p>O trabalho tem como ênfase apresentar o problema das oito rainhas e demonstrar
+                            uma forma de solucioná-lo. Este problema tem como objetivo posicionar oito rainhas
+                            em um tabuleiro de xadrez de modo que nenhuma delas ataque nenhuma outra rainha.
+                            Será baseado nas propriedades da rainha de um jogo de xadrez.</p>
+
+                            <p>Podemos buscar uma solução eficiente para o problema estudando as propriedades
+                            das rainhas. Uma das propriedades da rainha é que não pode haver outra rainha na
+                            linha ou na coluna onde esta se encontra. Assim, na construção do algoritmo de
+                            solução, não tentaremos posicionar uma rainha em uma posição que esteja sendo atacada.
+                            Esta mesma propriedade também vale para as diagonais em relação as rainha já posicionadas.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div id="footer-wrapper">
+                <div id="copyright" class="container">
+                    <ul class="links">
+                        <li>Copyright &copy; 8 Rainhas 2016. All rights reserved.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/skel-viewport.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/system.js"></script>
+
+    </body>
+</html>
