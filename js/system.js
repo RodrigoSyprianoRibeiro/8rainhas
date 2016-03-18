@@ -205,10 +205,12 @@ $(function () {
   }
 
   function habilitaBotoes() {
+    $('.celula').on('click');
     $("button").removeClass("disabled");
   }
 
   function desabilitaBotoes() {
+    $('.celula').off('click');
     $("button").addClass("disabled");
   }
 

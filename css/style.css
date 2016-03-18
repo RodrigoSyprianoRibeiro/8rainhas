@@ -1,5 +1,6 @@
 #quadro {
-  width: 100%;
+  min-width: 300px;
+  max-width: 400px;
 }
 #tabuleiro {
   border: 1px solid gainsboro;
