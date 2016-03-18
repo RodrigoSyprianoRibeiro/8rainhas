@@ -163,22 +163,20 @@ $(function () {
     var y = parseInt(elemento.attr('y')); // pega linha a partir da id do elemento (ex. "p02")
     var x = parseInt(elemento.attr('x')); // pega coluna a partir da id do elemento
 
-    var i;
-
     if (elemento.hasClass("rainha")) { // já existe uma rainha na casa clicada
       elemento.removeClass("rainha"); // remove a classe 'rainha' da célula
       rainhas[x] = undefined;
     }
     else {
       if (rainhas[x] !== undefined) { // já existe uma rainha na mesma coluna
-        $('td[y="'+rainhas[i]+'"][x="'+i+'"]').removeClass("rainha"); // remove
+        $('td[y="'+rainhas[x]+'"][x="'+x+'"]').removeClass("rainha"); // remove
       }
       elemento.addClass("rainha"); // coloca a rainha na célula clicada
       rainhas[x] = y; // atualiza vetor
     }
 
     tmp = checaAtaques(); // verifica conflitos
-    i=0;
+    var i = 0;
     for (x=0; x<8; x++) {
       if (rainhas[x] !== undefined) { // checa quantas rainhas estão no tabuleiro
         i++;
