@@ -8,11 +8,12 @@
     <title>8 Rainhas | Modelos Evolucionários e Tratamento de Incertezas</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/animate.min.css" rel="stylesheet"> 
-    <link href="css/lightbox.css" rel="stylesheet"> 
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/rainbow/blackboard.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -29,7 +30,7 @@
                         <ul class="nav nav-pills">
                             <li><a href="https://github.com/RodrigoSyprianoRibeiro/8rainhas" target="_blank"><i class="fa fa-github"></i></a></li>
                         </ul>
-                    </div> 
+                    </div>
                 </div>
              </div>
         </div>
@@ -39,7 +40,7 @@
                     <a class="navbar-brand" href="index.html">
                         <h1><img src="images/rainha.png" alt="logo"> 8 Rainhas</h1>
                     </a>
-                    
+
                 </div>
             </div>
         </div>
@@ -52,28 +53,56 @@
                 <div class="col-md-12">
                     <ul id="tab1" class="nav nav-tabs">
                         <li class="active"><a href="#tab1-item1" data-toggle="tab">Jogo</a></li>
-                        <li><a href="#tab1-item2" data-toggle="tab">Sobre</a></li>
+                        <li><a href="#tab1-item2" data-toggle="tab">Código</a></li>
+                        <li><a href="#tab1-item3" data-toggle="tab">Sobre</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="tab1-item1">
-                            <div class="col-sm-12 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                <div id="mensagem" class="alert alert-success fade in hide">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    <h4></h4>
-                                    <p></p>
-                                </div>
-                                <div class="single-service">
-                                    <div id="quadro" class="container margin-bottom"></div>
-                                    <h2>Passos executados:</h2>
-                                    <h1 id="passos"><b>0</b></h1>
+                            <div class="col-sm-3 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <h2>Passos executados:</h2>
+                                <h1 id="passos">0</h1>
+                            </div>
+                            <div class="col-sm-6 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div id="quadro"></div>
+                            </div>
+                            <div class="col-sm-3 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
+                                <div class="row margin-bottom">
                                     <button type="button" id="busca" class="btn btn-lg btn-success">Busca solução</button>
+                                </div>
+                                <div class="row margin-bottom">
+                                    <button type="button" id="parar" class="btn btn-lg btn-danger hide">Parar execução</button>
+                                </div>
+                                <div class="row">
                                     <button type="button" id="limpa" class="btn btn-lg btn-warning">Limpa tabuleiro</button>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="tab1-item2">
                             <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                                <h2 class="page-header">Desafio <strong>8 Rainhas</strong></h2>
+                                <h2 class="page-header">Código <strong>Fonte</strong></h2>
+                                <div class="col-md-12">
+                                    <ul id="tab2" class="nav nav-tabs">
+                                        <li class="active"><a href="#tab2-item1" data-toggle="tab">JS</a></li>
+                                        <li><a href="#tab2-item2" data-toggle="tab">HTML</a></li>
+                                        <li><a href="#tab2-item3" data-toggle="tab">CSS</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade active in" id="tab2-item1">
+                                          <pre><code id="codigo-fonte-js" data-language="javascript"><?php include 'docs/js.txt'; ?></code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab2-item2">
+                                            <pre><code id="codigo-fonte-html" data-language="html"></code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab2-item3">
+                                            <pre><code id="codigo-fonte-css" data-language="css"></code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab1-item3">
+                            <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                                <h2 class="page-header">Sobre o Desafio <strong>8 Rainhas</strong></h2>
                                 <blockquote>
                                     <p>O desafio das 8 Rainhas tem como objetivo posicionar oito rainhas
                                     em um tabuleiro de xadrez de modo que nenhuma delas ataque nenhuma outra rainha.
@@ -87,7 +116,7 @@
                                 </blockquote>
                             </div>
                             <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                                <h2 class="page-header">Autores</h2>
+                                <h2 class="page-header"><strong>Autores</strong></h2>
                                 <blockquote>
                                     <p>Rodrigo Ribeiro e Taynara Rechia.</p>
 
@@ -126,5 +155,10 @@
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/bootbox.js"></script>
     <script type="text/javascript" src="js/system.js"></script>
+    <script type="text/javascript" src="js/rainbow/rainbow.min.js"></script>
+    <script type="text/javascript" src="js/rainbow/language/generic.js"></script>
+    <script type="text/javascript" src="js/rainbow/language/css.js"></script>
+    <script type="text/javascript" src="js/rainbow/language/html.js"></script>
+    <script type="text/javascript" src="js/rainbow/language/javascript.js"></script>
 </body>
 </html>

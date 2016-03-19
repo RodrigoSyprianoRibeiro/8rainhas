@@ -237,10 +237,4 @@ $(function () {
       }
     });
   }
-  jQuery.get('docs/html.txt', function(data) {
-    $('#codigo-fonte-html').html(data.replace('n',''));
-  });
-  jQuery.get('docs/css.txt', function(data) {
-    $('#codigo-fonte-css').html(data.replace('n',''));
-  });
 });
