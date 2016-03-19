@@ -11,17 +11,17 @@ $(function () {
 
   function montaTabuleiro() {
     var count = 0;
-    var html = "<table id='tabuleiro'>";
+    var html = "&lt;table id='tabuleiro'&gt;";
     for (y = 0; y < 8; y++) {
-      html += "<tr>";
+      html += "&lt;tr&gt;";
       for (x = 0; x < 8; x++) {
-        html += "<td y='"+y+"' x='"+x+"' class='c"+(count%2)+" celula'></td>";
+        html += "&lt;td y='"+y+"' x='"+x+"' class='c"+(count%2)+" celula'&gt;&lt;/td&gt;";
         count++;
       }
-      html += "</tr>";
+      html += "&lt;/tr&gt;";
       count++;
     }
-    html += "</table>";
+    html += "&lt;/table&gt;";
     $("#quadro").html(html);
     rainhas = [];
   }
@@ -227,11 +227,11 @@ $(function () {
 
   function modalAviso(titulo, mensagem) {
     bootbox.dialog({
-      title: "<h3 class='smaller lighter no-margin'>"+titulo+"</h3>",
-      message: "<h3>"+mensagem+"</h3>", 
+      title: "&lt;h3 class='smaller lighter no-margin'&gt;"+titulo+"&lt;/h3&gt;",
+      message: "&lt;h3&gt;"+mensagem+"&lt;/h3&gt;", 
       buttons: {
         danger: {
-          label: "<i class='ace-icon fa fa-times'></i> Fechar",
+          label: "&lt;i class='ace-icon fa fa-times'&gt;&lt;/i&gt; Fechar",
           className: "btn btn-sm btn-danger pull-right"
         }
       }
