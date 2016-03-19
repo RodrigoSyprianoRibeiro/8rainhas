@@ -3,6 +3,6 @@
 
 &lt;div id="quadro"&gt;&lt;/div&gt;
 
-&lt;button type="button" id="busca" class="btn btn-lg btn-success"&gt;Busca solução&lt;/button&gt;
+&lt;button type="button" id="buscar" class="btn btn-lg btn-success"&gt;Buscar solução&lt;/button&gt;
 &lt;button type="button" id="parar" class="btn btn-lg btn-danger hide"&gt;Parar execução&lt;/button&gt;
-&lt;button type="button" id="limpa" class="btn btn-lg btn-warning"&gt;Limpa tabuleiro&lt;/button&gt;
+&lt;button type="button" id="limpar" class="btn btn-lg btn-warning"&gt;Limpar tabuleiro&lt;/button&gt;

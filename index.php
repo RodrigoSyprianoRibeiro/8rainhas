@@ -67,13 +67,13 @@
                             </div>
                             <div class="col-sm-3 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div class="row margin-bottom">
-                                    <button type="button" id="busca" class="btn btn-lg btn-success">Busca solução</button>
+                                    <button type="button" id="buscar" class="btn btn-lg btn-success">Buscar solução</button>
                                 </div>
                                 <div class="row margin-bottom">
                                     <button type="button" id="parar" class="btn btn-lg btn-danger hide">Parar execução</button>
                                 </div>
                                 <div class="row">
-                                    <button type="button" id="limpa" class="btn btn-lg btn-warning">Limpa tabuleiro</button>
+                                    <button type="button" id="limpar" class="btn btn-lg btn-warning">Limpar tabuleiro</button>
                                 </div>
                             </div>
                         </div>

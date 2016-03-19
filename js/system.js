@@ -26,7 +26,7 @@ $(function () {
     rainhas = [];
   }
 
-  function buscaSolucao() {
+  function buscarSolucao() {
     desabilitaBotoes();
     for (i = 0; i < 8; i++) { // garante que exista uma rainha em cada coluna
       if (rainhas[i] === undefined) { // se não existe uma rainha nessa coluna
@@ -154,11 +154,11 @@ $(function () {
     }
   });
 
-  // Ação do botão "Busca solução" 
-  $(document).on('click', '#busca', function(e){
+  // Ação do botão "Buscar solução" 
+  $(document).on('click', '#buscar', function(e){
     e.preventDefault();
     emExecucao = true;
-    buscaSolucao();
+    buscarSolucao();
   });
   
   // Ação do botão "Parar execução" 
@@ -168,13 +168,13 @@ $(function () {
     habilitaBotoes();
   });
 
-  // Ação do botão "Limpa tabuleiro" 
-  $(document).on('click', '#limpa', function(e){
+  // Ação do botão "Limpar tabuleiro" 
+  $(document).on('click', '#limpar', function(e){
     e.preventDefault();
-    limpaTabuleiro();
+    limparTabuleiro();
   });
 
-  function limpaTabuleiro() {
+  function limparTabuleiro() {
     emExecucao = false;
     rainhas = [];
     exibeEstado();
