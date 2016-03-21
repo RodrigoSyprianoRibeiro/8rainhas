@@ -16,7 +16,7 @@ class Log {
     }
 
     public static function escreveArquivo($arquivo, $inicioExecucao, $fimExecucao, $melhorCromossomo, $dados) {
-        $log = fopen($arquivo, "r+");
+        $log = fopen($arquivo, "x");
         $texto  = "Execução: ".$inicioExecucao." - ".$fimExecucao." (Duração: ".self::mostraTempoExecucao($inicioExecucao, $fimExecucao).") \n";
         $texto .= "Melhor Cromossomo: \n";
         $texto .= "Geração: ".$melhorCromossomo->geracao."\n";
