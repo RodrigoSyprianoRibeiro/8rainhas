@@ -243,4 +243,9 @@ $(function () {
   jQuery.get('docs/css.txt', function(data) {
     $('#codigo-fonte-css').html(data.replace('n',''));
   });
+
+  $('.inteiro').keyup(function() {
+    var valor = $(this).val().replace(/[^0-9]+/g,'');
+    $(this).val(valor);
+  });
 });

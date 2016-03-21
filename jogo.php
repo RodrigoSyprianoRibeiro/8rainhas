@@ -59,29 +59,8 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="tab1-item1">
                             <div class="col-sm-3 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                <div class="contact-form bottom">
-                                    <h2>Parâmetros:</h2>
-                                    <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
-                                        <div class="form-group">
-                                            <input type="text" name="populacao_inicial" class="form-control inteiro" required="required" placeholder="População Inicial" title="Quantidade da população inicial.">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="quantidade_geracoes" class="form-control inteiro" required="required" placeholder="Quantidade de Gerações" title="Quantidade de quantas vezes vai gerar população nova.">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="quantidade_selecao" class="knob" value="50" data-width="50" data-height="50" data-fgColor="#3c8dbc"/>
-                                            <div class="knob-label">% Seleção para próxima geração</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="quantidade_crossover" class="knob" value="100" data-width="50" data-height="50" data-fgColor="#00a65a"/>
-                                            <div class="knob-label">% População para crossover</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="quantidade_Mutacao" class="knob" value="1" data-width="50" data-height="50" data-fgColor="#f56954"/>
-                                            <div class="knob-label">% População para mutação</div>
-                                        </div>
-                                    </form>
-                                </div>
+                                <h2>Passos executados:</h2>
+                                <h1 id="passos">0</h1>
                             </div>
                             <div class="col-sm-6 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
                                 <div id="quadro"></div>
@@ -175,8 +154,7 @@
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/bootbox.js"></script>
-    <script type="text/javascript" src="js/jquery.knob.js"></script>
-    <script type="text/javascript" src="js/algoritmos-geneticos.js"></script>
+    <script type="text/javascript" src="js/system.js"></script>
     <script type="text/javascript" src="js/rainbow/rainbow.min.js"></script>
     <script type="text/javascript" src="js/rainbow/language/generic.js"></script>
     <script type="text/javascript" src="js/rainbow/language/css.js"></script>
