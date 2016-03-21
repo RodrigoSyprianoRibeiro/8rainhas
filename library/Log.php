@@ -17,7 +17,7 @@ class Log {
 
     public static function escreveArquivo($arquivo, $inicioExecucao, $fimExecucao, $melhorCromossomo, $dados) {
         $log = fopen($arquivo, "a");
-        $texto  = "Execução: ".$inicioExecucao." - ".$fimExecucao." (Duração: ".self::mostraTempoExecucao($inicioExecucao, $fimExecucao).") \n";
+        $texto  = "Execução: ".self::formatoDataHoraPadrao($inicioExecucao, true)." - ".self::formatoDataHoraPadrao($fimExecucao, true)." (Duração: ".self::mostraTempoExecucao($inicioExecucao, $fimExecucao).") \n";
         $texto .= "Melhor Cromossomo: \n";
         $texto .= "Geração: ".$melhorCromossomo->geracao."\n";
         $texto .= "Aptidão: ".$melhorCromossomo->aptidao."\n";
@@ -30,5 +30,12 @@ class Log {
         $texto .= "Quantidade da população que vai sofrer Mutação: ".$dados['quantidade_mutacao']."%\n";
         fwrite($log, $texto . "\n");
         fclose($log);
+    }
+
+    public static function formatoDataHoraPadrao($dataHora,$exibirHora=true) {
+        $novaDataHora = explode(' ', $dataHora);
+        $novaData = explode('-', $novaDataHora[0]);
+        $novaHora = $exibirHora === true ? $novaDataHora[1] : "";
+        return $novaData[2]."/".$novaData[1]."/".$novaData[0]." ".$novaHora;
     }
 }
