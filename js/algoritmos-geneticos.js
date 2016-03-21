@@ -35,7 +35,7 @@ $(function () {
       data: dados,
       success: function(response) {
         exibeEstado(response.vetor);
-        modalAviso("Teminou!", "<h3><b>Geração: </b>" + response.geracao + "</h3>\n\
+        modalAviso("<b>Terminou!</b>", "<h3><b>Geração: </b>" + response.geracao + "</h3>\n\
                                 <h3><b>Aptidão: </b>" + response.aptidao + "</h3>\n\
                                 <h3><b>Fenótipo: </b>" + response.vetor + "</h3>");
         carregaLog();

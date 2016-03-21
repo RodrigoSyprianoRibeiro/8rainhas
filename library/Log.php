@@ -16,7 +16,7 @@ class Log {
     }
 
     public static function escreveArquivo($arquivo, $inicioExecucao, $fimExecucao, $melhorCromossomo, $dados) {
-        $log = fopen($arquivo, "x+");
+        $log = fopen($arquivo, "a");
         $texto  = "Execução: ".$inicioExecucao." - ".$fimExecucao." (Duração: ".self::mostraTempoExecucao($inicioExecucao, $fimExecucao).") \n";
         $texto .= "Melhor Cromossomo: \n";
         $texto .= "Geração: ".$melhorCromossomo->geracao."\n";
@@ -29,5 +29,6 @@ class Log {
         $texto .= "Quantidade da população que vai fazer Crossover: ".$dados['quantidade_crossover']."%\n";
         $texto .= "Quantidade da população que vai sofrer Mutação: ".$dados['quantidade_mutacao']."%\n";
         fwrite($log, $texto . "\n");
+        fclose($log);
     }
 }

@@ -80,7 +80,7 @@ $(function () {
       }
     } else { // se não há conflitos no tabuleiro, encontrou uma solução!
       habilitaBotoes();
-      modalAviso("Sucesso!", "Solução encontrada!");
+      modalAviso("<b>Sucesso!</b>", "Solução encontrada!");
     }
   }
 
