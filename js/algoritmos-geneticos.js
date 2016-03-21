@@ -17,49 +17,39 @@ $(function () {
     html += "</table>";
     $("#quadro").html(html);
     rainhas = [];
-  }
-
-  function buscarSolucao() {
-    desabilitaBotoes();
-    
-  }
-
-  function exibeEstado() { // atualiza tabuleiro na tela - retorna o número de conflitos
-    var elemento;
-    for (y = 0; y < 8; y++) {
-      for (x = 0; x < 8; x++) {
-        elemento = $('td[y="'+y+'"][x="'+x+'"]');
-        if (elemento.hasClass("rainha")) {
-          elemento.removeClass("rainha"); // remove a classe 'rainha' da célula
-        }
-        if (rainhas[x] !== undefined && y === rainhas[x]) {
-          elemento.addClass("rainha");
-        }
-      }
-    }
-  }
-
-  // Ação de clicar no tabuleiro para coloca/remove rainha na célula clicada pelo usuário
-  $(document).on('click', '.celula', function(e) {
-    e.preventDefault();
-    if (emExecucao === false) {
-      efetuaJogada($(this));
-    }
-  });
+  };
 
   // Ação do botão "Buscar solução" 
   $(document).on('click', '#buscar', function(e){
     e.preventDefault();
-    emExecucao = true;
     buscarSolucao();
   });
 
-  // Ação do botão "Parar execução" 
-  $(document).on('click', '#parar', function(e){
-    e.preventDefault();
-    emExecucao = false;
-    habilitaBotoes();
-  });
+  function buscarSolucao() {
+    var dados = $('#parametros').serialize();
+    $.ajax({
+      dataType: "json",
+      type: 'POST',
+      url: 'executar.php',
+      async: true,
+      data: dados,
+      success: function(response) {
+        exibeEstado(response.vetor);
+        modalAviso("Teminou!", "<h3><b>Geração: </b>" + response.geracao + "</h3>\n\
+                                <h3><b>Aptidão: </b>" + response.aptidao + "</h3>\n\
+                                <h3><b>Fenotipo: </b>" + response.vetor + "</h3>");
+                                
+      },
+      beforeSend: function(){
+        desabilitaBotoes();
+        abreModalCarregando();
+      },
+      complete: function(){
+        habilitaBotoes();
+        fechaModalCarregando();
+      }
+    });
+  };
 
   // Ação do botão "Limpar tabuleiro" 
   $(document).on('click', '#limpar', function(e){
@@ -67,30 +57,44 @@ $(function () {
     limparTabuleiro();
   });
 
+  function exibeEstado(vetor) { // atualiza tabuleiro na tela - retorna o número de conflitos
+    limparTabuleiro();
+    for (i = 0; i < 8; i++) {
+      $('td[y="'+vetor[i]+'"][x="'+i+'"]').addClass("rainha");
+    }
+    checaAtaques(vetor);
+  }
+
+  function checaAtaques(vetor) { // marca conflitos no tabuleiro
+    for (i = 0; i < 7; i++) {
+      for (j = i + 1; j < 8; j++) {
+        if (vetor[i] === vetor[j] || vetor[i]+i === vetor[j]+j || vetor[i]+j === vetor[j]+i) {
+          $('td[y="'+vetor[i]+'"][x="'+i+'"]').addClass("conflito");
+          $('td[y="'+vetor[j]+'"][x="'+j+'"]').addClass("conflito");
+        }
+      }
+    }
+  }
+
   function limparTabuleiro() {
-    emExecucao = false;
-    rainhas = [];
-    exibeEstado();
-    passos = 0;
-    $("#passos").html(0);
+    $(".celula").removeClass("rainha");
+    $(".celula").removeClass("conflito");
   }
 
   function habilitaBotoes() {
     $(".btn-success").removeClass("disabled");
-    $(".btn-danger").addClass("hide");
     $(".btn-warning").removeClass("disabled");
   }
 
   function desabilitaBotoes() {
     $(".btn-success").addClass("disabled");
-    $(".btn-danger").removeClass("hide");
     $(".btn-warning").addClass("disabled");
   }
 
   function modalAviso(titulo, mensagem) {
     bootbox.dialog({
       title: "<h3 class='smaller lighter no-margin'>"+titulo+"</h3>",
-      message: "<h3>"+mensagem+"</h3>", 
+      message: mensagem,
       buttons: {
         danger: {
           label: "<i class='ace-icon fa fa-times'></i> Fechar",
@@ -99,60 +103,56 @@ $(function () {
       }
     });
   }
-  jQuery.get('docs/html.txt', function(data) {
-    $('#codigo-fonte-html').html(data.replace('n',''));
-  });
-  jQuery.get('docs/css.txt', function(data) {
-    $('#codigo-fonte-css').html(data.replace('n',''));
-  });
-  
-  $(".knob").knob({
-    draw: function () {
 
-      if (this.$.data('skin') == 'tron') {
+  function abreModalCarregando() {
+    $('html, body').animate({ scrollTop: $("body").offset().top }, 'slow');
+    var id = '.carregando';
+    var maskHeight = $(document).height();
+    var maskWidth = $(window).width();
+    $('#mask').css({'width':maskWidth,'height':maskHeight});
+    $('#mask').fadeIn(1000);
+    $('#mask').fadeTo("slow",0.8);
+    var winH = $(window).height();
+    var winW = $(window).width();
+    $(id).css('top',  winH/2-$(id).height()/2);
+    $(id).css('left', winW/2-$(id).width()/2);
+    $(id).fadeIn(2000);
+  };
 
-        var a = this.angle(this.cv)     // Angle
-                , sa = this.startAngle  // Previous start angle
-                , sat = this.startAngle // Start angle
-                , ea                    // Previous end angle
-                , eat = sat + a         // End angle
-                , r = true;
+  function fechaModalCarregando() {
+    $('#mask').hide();
+    $('.window').hide();
+  };
 
-        this.g.lineWidth = this.lineWidth;
-
-        this.o.cursor
-                && (sat = eat - 0.3)
-                && (eat = eat + 0.3);
-
-        if (this.o.displayPrevious) {
-          ea = this.startAngle + this.angle(this.value);
-          this.o.cursor
-                  && (sa = ea - 0.3)
-                  && (ea = ea + 0.3);
-          this.g.beginPath();
-          this.g.strokeStyle = this.previousColor;
-          this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
-          this.g.stroke();
-        }
-
-        this.g.beginPath();
-        this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
-        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
-        this.g.stroke();
-
-        this.g.lineWidth = 2;
-        this.g.beginPath();
-        this.g.strokeStyle = this.o.fgColor;
-        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-        this.g.stroke();
-
-        return false;
-      }
-    }
+  $("#populacao_inicial").ionRangeSlider({
+    min: 0,
+    max: 500,
+    from: 20,
+    type: 'single',
+    step: 10,
+    postfix: " indivíduos",
+    prettify: false,
+    hasGrid: true
   });
 
-  $('.inteiro').keyup(function() {
-    var valor = $(this).val().replace(/[^0-9]+/g,'');
-    $(this).val(valor);
+  $("#quantidade_geracoes").ionRangeSlider({
+    min: 0,
+    max: 100,
+    from: 20,
+    type: 'single',
+    step: 1,
+    postfix: " gerações",
+    prettify: false,
+    hasGrid: true
+  });
+
+  $(".percentagem").ionRangeSlider({
+    min: 0,
+    max: 100,
+    type: 'single',
+    step: 1,
+    postfix: "%",
+    prettify: false,
+    hasGrid: true
   });
 });

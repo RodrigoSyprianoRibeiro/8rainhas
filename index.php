@@ -12,8 +12,10 @@
     <link href="css/lightbox.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/ionslider/ion.rangeSlider.css" rel="stylesheet">
+    <link href="css/ionslider/ion.rangeSlider.skinNice.css" rel="stylesheet">
     <link href="css/rainbow/blackboard.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -22,6 +24,12 @@
 </head><!--/head-->
 
 <body>
+
+    <div class="carregando window">
+        <img src="images/carregando.gif" alt="Carregando" />
+    </div>
+    <div id="mask"></div>
+  
     <header id="header">
         <div class="container">
             <div class="row">
@@ -58,40 +66,36 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="tab1-item1">
-                            <div class="col-sm-3 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
-                                <div class="contact-form bottom">
-                                    <h2>Parâmetros:</h2>
-                                    <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
-                                        <div class="form-group">
-                                            <input type="text" name="populacao_inicial" class="form-control inteiro" required="required" placeholder="População Inicial" title="Quantidade da população inicial.">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="quantidade_geracoes" class="form-control inteiro" required="required" placeholder="Quantidade de Gerações" title="Quantidade de quantas vezes vai gerar população nova.">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="quantidade_selecao" class="knob" value="50" data-width="50" data-height="50" data-fgColor="#3c8dbc"/>
-                                            <div class="knob-label">% Seleção para próxima geração</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="quantidade_crossover" class="knob" value="100" data-width="50" data-height="50" data-fgColor="#00a65a"/>
-                                            <div class="knob-label">% População para crossover</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="quantidade_Mutacao" class="knob" value="1" data-width="50" data-height="50" data-fgColor="#f56954"/>
-                                            <div class="knob-label">% População para mutação</div>
-                                        </div>
-                                    </form>
-                                </div>
+                            <div class="col-sm-3 wow fadeIn text-center padding" data-wow-duration="500ms" data-wow-delay="300ms">
+                                <form id="parametros">
+                                    <div class="form-group">
+                                        <div class="knob-label">População inicial</div>
+                                        <input type="text" id="populacao_inicial" name="populacao_inicial" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="knob-label">Quantidade de gerações</div>
+                                        <input type="text" id="quantidade_geracoes" name="quantidade_geracoes" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="knob-label">% Seleção para próxima geração</div>
+                                        <input type="text" id="quantidade_selecao" name="quantidade_selecao" class="percentagem" data-from="50" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="knob-label">% População para crossover</div>
+                                        <input type="text" id="quantidade_crossover" name="quantidade_crossover" class="percentagem" data-from="100" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="knob-label">% População para mutação</div>
+                                        <input type="text" id="quantidade_mutacao" name="quantidade_mutacao" class="percentagem" data-from="1" value="" />
+                                    </div>
+                                </form>
                             </div>
-                            <div class="col-sm-6 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="col-sm-6 wow fadeIn text-center padding" data-wow-duration="500ms" data-wow-delay="300ms">
                                 <div id="quadro"></div>
                             </div>
-                            <div class="col-sm-3 wow fadeIn text-center padding" data-wow-duration="1000ms" data-wow-delay="300ms">
+                            <div class="col-sm-3 wow fadeIn text-center padding" data-wow-duration="500ms" data-wow-delay="300ms">
                                 <div class="row margin-bottom">
                                     <button type="button" id="buscar" class="btn btn-lg btn-success">Buscar solução</button>
-                                </div>
-                                <div class="row margin-bottom">
-                                    <button type="button" id="parar" class="btn btn-lg btn-danger hide">Parar execução</button>
                                 </div>
                                 <div class="row">
                                     <button type="button" id="limpar" class="btn btn-lg btn-warning">Limpar tabuleiro</button>
@@ -103,19 +107,31 @@
                                 <h2 class="page-header">Código <strong>Fonte</strong></h2>
                                 <div class="col-md-12">
                                     <ul id="tab2" class="nav nav-tabs">
-                                        <li class="active"><a href="#tab2-item1" data-toggle="tab">JS</a></li>
-                                        <li><a href="#tab2-item2" data-toggle="tab">HTML</a></li>
-                                        <li><a href="#tab2-item3" data-toggle="tab">CSS</a></li>
+                                        <li class="active"><a href="#tab2-item1" data-toggle="tab">HTML</a></li>
+                                        <li><a href="#tab2-item2" data-toggle="tab">CSS</a></li>
+                                        <li><a href="#tab2-item3" data-toggle="tab">JS</a></li>
+                                        <li><a href="#tab2-item4" data-toggle="tab">executar.php</a></li>
+                                        <li><a href="#tab2-item5" data-toggle="tab">AlgoritmosGeneticos.php</a></li>
+                                        <li><a href="#tab2-item6" data-toggle="tab">Cromossomo.php</a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane fade active in" id="tab2-item1">
-                                          <pre><code id="codigo-fonte-js" data-language="javascript"><?php include 'docs/js.txt'; ?></code></pre>
+                                            <pre><code id="codigo-fonte-html" data-language="html"><?php include 'docs/html.txt'; ?><</code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item2">
-                                            <pre><code id="codigo-fonte-html" data-language="html"></code></pre>
+                                            <pre><code id="codigo-fonte-css" data-language="css"><?php include 'docs/css.txt'; ?></code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item3">
-                                            <pre><code id="codigo-fonte-css" data-language="css"></code></pre>
+                                            <pre><code id="codigo-fonte-js" data-language="javascript"><?php include 'docs/js.txt'; ?></code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab2-item4">
+                                            <pre><code id="codigo-fonte-css" data-language="php"><?php include 'docs/executar.txt'; ?></code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab2-item5">
+                                            <pre><code id="codigo-fonte-css" data-language="php"><?php include 'docs/algoritmosgeneticos.txt'; ?></code></pre>
+                                        </div>
+                                        <div class="tab-pane fade" id="tab2-item6">
+                                            <pre><code id="codigo-fonte-css" data-language="php"><?php include 'docs/cromossomo.txt'; ?></code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -134,6 +150,26 @@
                                     linha ou na coluna onde esta se encontra. Assim, na construção do algoritmo de
                                     solução, não tentaremos posicionar uma rainha em uma posição que esteja sendo atacada.
                                     Esta mesma propriedade também vale para as diagonais em relação as rainha já posicionadas.</p>
+                                </blockquote>
+                            </div>
+                            <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                                <h2 class="page-header">Algoritmos <strong>Genéticos</strong></h2>
+                                <blockquote>
+                                    <p>Para resolver o problema foi utilizada as técnicas dos <b>Algoritmos Genéticos</b>.
+                                    São algoritmos de busca baseados nos mecanismos de seleção natural e genética.</p>
+
+                                    <p>Componentes dos <b>Algoritmos Genéticos:</b>
+                                    <ul>
+                                        <li>Representação (definição dos indivíduos)</li>
+                                        <li>Função de avaliação (função fitness)</li>
+                                        <li>População</li>
+                                        <li>Mecanismo de seleção dos pais</li>
+                                        <li>Operadores genéticos</li>
+                                        <li>Mecanismo de seleção dos sobreviventes</li>
+                                    </ul></p>
+
+                                    <p>Para <b>Recombinação</b> foi utilizado a técnica <b>Cut-and-crossfill</b> e
+                                    <b>Mutação</b> a técnica de <b>Swap</b>.
                                 </blockquote>
                             </div>
                             <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
@@ -175,12 +211,13 @@
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/bootbox.js"></script>
-    <script type="text/javascript" src="js/jquery.knob.js"></script>
+    <script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
     <script type="text/javascript" src="js/algoritmos-geneticos.js"></script>
     <script type="text/javascript" src="js/rainbow/rainbow.min.js"></script>
-    <script type="text/javascript" src="js/rainbow/language/generic.js"></script>
     <script type="text/javascript" src="js/rainbow/language/css.js"></script>
+    <script type="text/javascript" src="js/rainbow/language/generic.js"></script>
     <script type="text/javascript" src="js/rainbow/language/html.js"></script>
     <script type="text/javascript" src="js/rainbow/language/javascript.js"></script>
+    <script type="text/javascript" src="js/rainbow/language/php.js"></script>
 </body>
 </html>

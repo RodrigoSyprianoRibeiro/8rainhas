@@ -88,13 +88,13 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane fade active in" id="tab2-item1">
-                                          <pre><code id="codigo-fonte-js" data-language="javascript"><?php include 'docs/js.txt'; ?></code></pre>
+                                          <pre><code id="codigo-fonte-js" data-language="javascript"><?php include 'docs/js-jogo.txt'; ?></code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item2">
-                                            <pre><code id="codigo-fonte-html" data-language="html"></code></pre>
+                                            <pre><code id="codigo-fonte-html" data-language="html"><?php include 'docs/html-jogo.txt'; ?><</code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item3">
-                                            <pre><code id="codigo-fonte-css" data-language="css"></code></pre>
+                                            <pre><code id="codigo-fonte-css" data-language="css"><?php include 'docs/css.txt'; ?></code></pre>
                                         </div>
                                     </div>
                                 </div>
