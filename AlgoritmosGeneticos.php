@@ -56,7 +56,7 @@ class AlgoritmosGeneticos {
 
         $this->ordenarPopulacaoMaiorMenor();
 
-        $totalPopulacao = (int) (count($this->populacao) * $this->quantidadeSelecao);
+        $totalPopulacao = round(count($this->populacao) * $this->quantidadeSelecao);
         $populacaoEletista = array();
         for ($i = 0; $i < $totalPopulacao; $i++) {
             array_push($populacaoEletista, $this->populacao[$i]);
@@ -80,7 +80,8 @@ class AlgoritmosGeneticos {
 
     public function geraPopulacaoCrossover() {
 
-        $totalCrossover = (int) (count($this->populacao) * $this->quantidadeCrossover);
+        $quantidadeCrossover = round(count($this->populacao) * $this->quantidadeCrossover);
+        $totalCrossover = ($quantidadeCrossover % 2 == 0) ? $quantidadeCrossover : $quantidadeCrossover - 1;
 
         $populacaoCrossover = array();
         while ($totalCrossover > 0) {
@@ -121,7 +122,7 @@ class AlgoritmosGeneticos {
 
     public function mutacao() {
 
-        $totalMutacao = (int) (count($this->populacao) * $this->quantidadeMutacao);
+        $totalMutacao = round(count($this->populacao) * $this->quantidadeMutacao);
 
         while ($totalMutacao > 0) {
 
