@@ -63,6 +63,7 @@
                         <li class="active"><a href="#tab1-item1" data-toggle="tab">Jogo</a></li>
                         <li><a href="#tab1-item2" data-toggle="tab">Código</a></li>
                         <li><a href="#tab1-item3" data-toggle="tab">Sobre</a></li>
+                        <li><a href="#tab1-item4" data-toggle="tab">Log</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="tab1-item1">
@@ -116,22 +117,22 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane fade active in" id="tab2-item1">
-                                            <pre><code id="codigo-fonte-html" data-language="html"><?php include 'docs/html.txt'; ?><</code></pre>
+                                            <pre><code data-language="html"><?php include 'docs/html.txt'; ?><</code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item2">
-                                            <pre><code id="codigo-fonte-css" data-language="css"><?php include 'docs/css.txt'; ?></code></pre>
+                                            <pre><code data-language="css"><?php include 'docs/css.txt'; ?></code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item3">
-                                            <pre><code id="codigo-fonte-js" data-language="javascript"><?php include 'docs/js.txt'; ?></code></pre>
+                                            <pre><code data-language="javascript"><?php include 'docs/js.txt'; ?></code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item4">
-                                            <pre><code id="codigo-fonte-css" data-language="php"><?php include 'docs/executar.txt'; ?></code></pre>
+                                            <pre><code data-language="php"><?php include 'docs/executar.txt'; ?></code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item5">
-                                            <pre><code id="codigo-fonte-css" data-language="php"><?php include 'docs/algoritmosgeneticos.txt'; ?></code></pre>
+                                            <pre><code data-language="php"><?php include 'docs/algoritmosgeneticos.txt'; ?></code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item6">
-                                            <pre><code id="codigo-fonte-css" data-language="php"><?php include 'docs/cromossomo.txt'; ?></code></pre>
+                                            <pre><code data-language="php"><?php include 'docs/cromossomo.txt'; ?></code></pre>
                                         </div>
                                     </div>
                                 </div>
@@ -191,6 +192,12 @@
                                 </blockquote>
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="tab1-item4">
+                            <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                                <h2 class="page-header">Log de <strong>Testes</strong></h2>
+                                <pre><code id="log" data-language="shell"></code></pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -228,5 +235,6 @@
     <script type="text/javascript" src="js/rainbow/language/html.js"></script>
     <script type="text/javascript" src="js/rainbow/language/javascript.js"></script>
     <script type="text/javascript" src="js/rainbow/language/php.js"></script>
+    <script type="text/javascript" src="js/rainbow/language/shell.js"></script>
 </body>
 </html>

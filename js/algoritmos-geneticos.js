@@ -37,8 +37,8 @@ $(function () {
         exibeEstado(response.vetor);
         modalAviso("Teminou!", "<h3><b>Geração: </b>" + response.geracao + "</h3>\n\
                                 <h3><b>Aptidão: </b>" + response.aptidao + "</h3>\n\
-                                <h3><b>Fenotipo: </b>" + response.vetor + "</h3>");
-                                
+                                <h3><b>Fenótipo: </b>" + response.vetor + "</h3>");
+        carregaLog();
       },
       beforeSend: function(){
         desabilitaBotoes();
@@ -155,4 +155,13 @@ $(function () {
     prettify: false,
     hasGrid: true
   });
+  
+
+  carregaLog();
+
+  function carregaLog() {
+    jQuery.get('log.txt', function(data) {
+      $('#log').html(data.replace('n',''));
+    });
+  };
 });

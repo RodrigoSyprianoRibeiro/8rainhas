@@ -54,7 +54,6 @@
                     <ul id="tab1" class="nav nav-tabs">
                         <li class="active"><a href="#tab1-item1" data-toggle="tab">Jogo</a></li>
                         <li><a href="#tab1-item2" data-toggle="tab">Código</a></li>
-                        <li><a href="#tab1-item3" data-toggle="tab">Sobre</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="tab1-item1">
@@ -88,41 +87,16 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div class="tab-pane fade active in" id="tab2-item1">
-                                          <pre><code id="codigo-fonte-js" data-language="javascript"><?php include 'docs/js-jogo.txt'; ?></code></pre>
+                                            <pre><code data-language="javascript"><?php include 'docs/js-jogo.txt'; ?></code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item2">
-                                            <pre><code id="codigo-fonte-html" data-language="html"><?php include 'docs/html-jogo.txt'; ?><</code></pre>
+                                            <pre><code data-language="html"><?php include 'docs/html-jogo.txt'; ?><</code></pre>
                                         </div>
                                         <div class="tab-pane fade" id="tab2-item3">
-                                            <pre><code id="codigo-fonte-css" data-language="css"><?php include 'docs/css.txt'; ?></code></pre>
+                                            <pre><code data-language="css"><?php include 'docs/css.txt'; ?></code></pre>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="tab1-item3">
-                            <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                                <h2 class="page-header">Sobre o Desafio <strong>8 Rainhas</strong></h2>
-                                <blockquote>
-                                    <p>O desafio das 8 Rainhas tem como objetivo posicionar oito rainhas
-                                    em um tabuleiro de xadrez de modo que nenhuma delas ataque nenhuma outra rainha.
-                                    Será baseado nas propriedades da rainha de um jogo de xadrez.</p>
-
-                                    <p>Podemos buscar uma solução eficiente para o problema estudando as propriedades
-                                    das rainhas. Uma das propriedades da rainha é que não pode haver outra rainha na
-                                    linha ou na coluna onde esta se encontra. Assim, na construção do algoritmo de
-                                    solução, não tentaremos posicionar uma rainha em uma posição que esteja sendo atacada.
-                                    Esta mesma propriedade também vale para as diagonais em relação as rainha já posicionadas.</p>
-                                </blockquote>
-                            </div>
-                            <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                                <h2 class="page-header"><strong>Autores</strong></h2>
-                                <blockquote>
-                                    <p>Rodrigo Ribeiro e Taynara Rechia.</p>
-
-                                    <footer>Trabalho da disciplina <cite title="Modelos Evolucionários e Tratamento de Incertezas">Modelos Evolucionários e Tratamento de Incertezas</cite>
-                                    do curso de Ciência da Computação da UNISUL (Universidade do Sul de Santa Catarina).</footer>
-                                </blockquote>
                             </div>
                         </div>
                     </div>
