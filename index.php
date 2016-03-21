@@ -166,10 +166,19 @@
                                         <li>Mecanismo de seleção dos pais</li>
                                         <li>Operadores genéticos</li>
                                         <li>Mecanismo de seleção dos sobreviventes</li>
-                                    </ul></p>
+                                    </ul>
+                                    </p>
 
-                                    <p>Para <b>Recombinação</b> foi utilizado a técnica <b>Cut-and-crossfill</b> e
-                                    <b>Mutação</b> a técnica de <b>Swap</b>.
+                                    <p><b>Representação</b> foi utilizado um vetor com 8 posições, onde o índice do vetor, representa a coluna
+                                    e o valor representa a linha no tabuleiro. <b>Ex.: [2, 3, 5, 7, 1, 0, 6, 4]</b>.</p>
+
+                                    <p><b>Função de avaliação</b> é verificado quantos conflitos de rainhas existem no tabuleiro.
+                                    Quanto menor o número de conflitos, melhor a aptidão do cromossomo.</p>
+
+                                    <p><b>Mecanismo de seleção dos pais</b>, é utilizada a forma <b>Eletista</b>, onde sempre pega os melhores indivíduos.</p>
+                                    
+                                    <p><b>Operadores genéticos</b> foi utilizado a técnica <b>Cut-and-crossfill</b> para <b>Recombinação</b> e a
+                                    técnica de <b>Swap</b> para <b>Mutação</b>.</p>
                                 </blockquote>
                             </div>
                             <div class="col-sm-12 wow fadeIn" data-wow-duration="500ms" data-wow-delay="300ms">

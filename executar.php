@@ -8,10 +8,18 @@ if ($_POST) {
 
     $algoritimoGenetico->geraPopulacaoInicial();
 
-    while ($algoritimoGenetico->quantidadeGeracoes > 0) {
+    while ($algoritimoGenetico->quantidadeGeracoes > 0 && count($algoritimoGenetico->populacao) > 0) {
+
         $algoritimoGenetico->geraNovaPopulacao();
+
+        $melhorUltimoCromossomo = $algoritimoGenetico->getMelhorCromossomo();
+
+        if ($melhorUltimoCromossomo !== null) {
+            $melhorCromossomo = $melhorUltimoCromossomo;
+        }
+
         $algoritimoGenetico->quantidadeGeracoes--;
     }
 
-    echo json_encode($algoritimoGenetico->getMelhorCromossomo());
+    echo json_encode($melhorCromossomo);
 }

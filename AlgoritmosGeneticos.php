@@ -47,9 +47,11 @@ class AlgoritmosGeneticos {
     }
 
     public function getMelhorCromossomo() {
-
-        $this->ordenarPopulacaoMaiorMenor();
-        return $this->populacao[0];
+        if (count($this->populacao) > 0) {
+            $this->ordenarPopulacaoMaiorMenor();
+            return $this->populacao[0];
+        }
+        return null;
     }
 
     public function selecaoEletista() {
