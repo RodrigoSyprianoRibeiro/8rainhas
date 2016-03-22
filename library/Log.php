@@ -21,7 +21,7 @@ class Log {
         $texto .= "Melhor Cromossomo: \n";
         $texto .= "Geração: ".$melhorCromossomo->geracao."\n";
         $texto .= "Aptidão: ".$melhorCromossomo->aptidao."\n";
-        $texto .= "Fenótipo: [".$melhorCromossomo->vetor[0].", ".$melhorCromossomo->vetor[1].", ".$melhorCromossomo->vetor[2].", ".$melhorCromossomo->vetor[3].", ".$melhorCromossomo->vetor[4].", ".$melhorCromossomo->vetor[5].", ".$melhorCromossomo->vetor[6].", ".$melhorCromossomo->vetor[7]."]\n";
+        $texto .= "Vetor: [".$melhorCromossomo->vetor[0].", ".$melhorCromossomo->vetor[1].", ".$melhorCromossomo->vetor[2].", ".$melhorCromossomo->vetor[3].", ".$melhorCromossomo->vetor[4].", ".$melhorCromossomo->vetor[5].", ".$melhorCromossomo->vetor[6].", ".$melhorCromossomo->vetor[7]."]\n";
         $texto .= "Parâmetros: \n";
         $texto .= "População inicial: ".$dados['populacao_inicial']."\n";
         $texto .= "Quantidade de Gerações: ".$dados['quantidade_geracoes']."\n";
