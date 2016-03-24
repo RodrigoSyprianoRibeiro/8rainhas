@@ -213,7 +213,7 @@
                 </div>
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
-                        <p>&copy; 8 Rainhas 2016. All Rights Reserved.</p>
+                        <p>&copy; Rodrigo Ribeiro 2016. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
