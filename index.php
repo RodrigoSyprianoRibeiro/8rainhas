@@ -29,7 +29,7 @@
         <img src="images/carregando.gif" alt="Carregando" />
     </div>
     <div id="mask"></div>
-  
+
     <header id="header">
         <div class="container">
             <div class="row">
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul id="tab1" class="nav nav-tabs">
-                        <li class="active"><a href="#tab1-item1" data-toggle="tab">Jogo</a></li>
+                        <li class="active"><a href="#tab1-item1" data-toggle="tab">Execução</a></li>
                         <li><a href="#tab1-item2" data-toggle="tab">Código</a></li>
                         <li><a href="#tab1-item3" data-toggle="tab">Sobre</a></li>
                         <li><a href="#tab1-item4" data-toggle="tab">Log</a></li>
@@ -178,7 +178,7 @@
                                     Quanto menor o número de conflitos, melhor a aptidão do cromossomo.</p>
 
                                     <p><b>Mecanismo de seleção dos pais</b>, é utilizada a forma <b>Eletista</b>, onde sempre pega os melhores indivíduos.</p>
-                                    
+
                                     <p><b>Operadores genéticos</b> foi utilizado a técnica <b>Cut-and-crossfill</b> para <b>Recombinação</b> e a
                                     técnica de <b>Swap</b> para <b>Mutação</b>.</p>
                                 </blockquote>
